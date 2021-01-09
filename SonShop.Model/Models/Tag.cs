@@ -14,6 +14,7 @@ namespace SonShop.Model.Models
     public class Tag
     {
         [Key]
+        [Column(TypeName ="varchar")]
         [MaxLength(50)]
         public string ID { set; get; }
         [Required]

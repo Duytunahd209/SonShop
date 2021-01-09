@@ -55,7 +55,14 @@
     <Compile Include="InfaStructure\IUnitOfWork.cs" />
     <Compile Include="InfaStructure\RepositoryBase.cs" />
     <Compile Include="InfaStructure\UnitOfWork.cs" />
+    <Compile Include="Migrations\202101091639212_InitialDB.cs" />
+    <Compile Include="Migrations\202101091639212_InitialDB.Designer.cs">
+      <DependentUpon>202101091639212_InitialDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ProductCategoryRepository.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="SonShopDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -73,7 +80,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Repositories\" />
+    <EmbeddedResource Include="Migrations\202101091639212_InitialDB.resx">
+      <DependentUpon>202101091639212_InitialDB.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
