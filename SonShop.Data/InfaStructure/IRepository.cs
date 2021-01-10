@@ -16,6 +16,7 @@ namespace SonShop.Data.InfaStructure
         void Update(T entity);
         //Mask an entity to be removed
         void Delete(T entity);
+        void Delete(int id);
         //Delete multi records
         void DeleteMulti(Expression<Func<T, bool>> where);
         //Get an entity by int ID

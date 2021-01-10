@@ -3,7 +3,7 @@ using SonShop.Model.Models;
 
 namespace SonShop.Data.Repositories
 {
-    public interface IMenuGroupRepository
+    public interface IMenuGroupRepository : IRepository<MenuGroup>
     {
     }
 

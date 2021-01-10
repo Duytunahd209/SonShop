@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SonShop.Data.Repositories
 {
-    public interface ISupportOnlineRepository
+    public interface ISupportOnlineRepository : IRepository<SupportOnline>
     {
     }
     public class SupportOnlineRepository : RepositoryBase<SupportOnline>, ISupportOnlineRepository

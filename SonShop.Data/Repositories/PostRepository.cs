@@ -3,7 +3,7 @@ using SonShop.Model.Models;
 
 namespace SonShop.Data.Repositories
 {
-    public interface IPostRepository
+    public interface IPostRepository : IRepository<Post>
     {
     }
 

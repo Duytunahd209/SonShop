@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SonShop.Data.Repositories
 {
-    public interface ISystemConfigRepository
+    public interface ISystemConfigRepository : IRepository<SystemConfig>
     {
     }
     public class SystemConfigRepository : RepositoryBase<SystemConfig>, ISystemConfigRepository

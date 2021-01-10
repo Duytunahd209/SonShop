@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SonShop.Data.Repositories
 {
-    public interface IOrderRepository
+    public interface IOrderRepository : IRepository<Order>
     {
     }
     public class OrderRepository : RepositoryBase<Order>, IOrderRepository
