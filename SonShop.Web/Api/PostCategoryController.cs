@@ -1,40 +1,33 @@
-﻿using SonShop.Web.infrastructure.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using SonShop.Service;
+using SonShop.Web.infrastructure.Core;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
 namespace SonShop.Web.Api
 {
+    [RoutePrefix("api/postcategory")]
     public class PostCategoryController : ApiControllerBase
     {
-        // GET api/<controller>
-        public IEnumerable<string> Get()
+        private IPostCategoryService _postCategoryService;
+
+        public PostCategoryController(IErrorService errorService, IPostCategoryService postCategoryService) :
+            base(errorService)
         {
-            return new string[] { "value1", "value2" };
+            this._postCategoryService = postCategoryService;
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
+        [Route("getall")]
+        public HttpResponseMessage Get(HttpRequestMessage request)
         {
-            return "value";
-        }
+            return CreateHttpResponse(request, () =>
+            {
+                var listCategory = _postCategoryService.GetAll();
 
-        // POST api/<controller>
-        public void Post([FromBody] string value)
-        {
-        }
+                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listCategory);
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
+                return response;
+            });
         }
     }
 }
