@@ -18,7 +18,7 @@ namespace SonShop.Service
         IEnumerable<PostCategory> GetAllByParentId(int parentId);
         PostCategory GetByID(int id);
 
-
+        void Save();
 
     }
     public class PostCategoryService : IPostCategoryService
@@ -56,9 +56,14 @@ namespace SonShop.Service
             return _postCategoryRepository.GetSingleByID(id);
         }
 
+        public void Save()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(PostCategory postCategory)
         {
-             _postCategoryRepository.Update(postCategory);
+            _unitOfWork.Commit();
         }
     }
 }
