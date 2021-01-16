@@ -4,11 +4,12 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity.EntityFramework;
 using SonShop.Model.Models;
 
 namespace SonShop.Data
 {
-    public class SonShopDbContext : DbContext
+    public class SonShopDbContext : IdentityDbContext<ApplicationUser>
     {
         public SonShopDbContext() : base("SonShopConnection")
         {
@@ -34,8 +35,14 @@ namespace SonShop.Data
         public DbSet<VisitorStatistic> VisitorStatistics { set; get; }
         public DbSet<Error> Errors { set; get; }
 
+        public static SonShopDbContext Create()
+        {
+            return new SonShopDbContext();
+        }
         protected override void OnModelCreating(DbModelBuilder builder)
         {
+            builder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId,i.RoleId });
+            builder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
         }
     }
 }
